@@ -5,20 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.laurageerars.laurageerarspset3.MainActivity">
+    tools:context="com.example.laurageerars.laurageerarspset3.CategoryActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Restaurant Categories"
+        android:text="Restaurant Menu"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <ListView
-        android:id="@+id/theCategoryListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2"/>
+        android:layout_weight="2"
+        android:id="@+id/theMenuListView"/>
 
     <Button
         android:id="@+id/OrderButton"
