@@ -116,6 +116,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void OrderClick(View view) {
+        Intent intent = new Intent(this, OrderActivity.class);
+        startActivity(intent);
+    }
 }
 
 

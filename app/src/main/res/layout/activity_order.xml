@@ -15,8 +15,21 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <ListView
+        android:id="@+id/theOrderListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/theOrderListView"/>
+        android:layout_weight="2"/>
+
+    <Button
+        android:id="@+id/EditButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit"/>
+
+    <Button
+        android:id="@+id/SubmitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"/>
 
 </LinearLayout>

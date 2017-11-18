@@ -136,9 +136,8 @@ public class CategoryActivity extends AppCompatActivity {
 
 
     }
-    public void gotoOrder(String Order){
+    public void OrderClick(View view) {
         Intent intent = new Intent(this, OrderActivity.class);
-        intent.putExtra("Order", Order);
         startActivity(intent);
     }
 
