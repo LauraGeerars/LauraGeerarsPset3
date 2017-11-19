@@ -12,24 +12,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="My Order"
+        android:layout_margin="20dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <ListView
         android:id="@+id/theOrderListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2"/>
+        android:layout_margin="20dp"
+        android:layout_weight="10">
 
-    <Button
-        android:id="@+id/EditButton"
+    </ListView>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Edit"/>
+        android:layout_weight="1"
+        android:orientation="horizontal"
 
-    <Button
-        android:id="@+id/SubmitButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit"/>
+        >
+
+        <Button
+            android:id="@+id/ClearButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Clear"
+            android:onClick="clearItems"/>
+
+        <Button
+            android:id="@+id/SubmitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Submit"
+            android:onClick="submitOrder"/>
+    </LinearLayout>
 
 </LinearLayout>

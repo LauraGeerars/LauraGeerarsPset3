@@ -74,11 +74,14 @@ public class CategoryActivity extends AppCompatActivity {
                                 //mTextView.setText(menuArray.getJSONObject(i).getString("name"));
                                 if (Objects.equals(menuArray.getJSONObject(i).getString("category"), CategoryMenu)) {
                                     //addItem(menuArray.getJSONObject(i).getString("name"));
-                                    listmenu.add(menuArray.getJSONObject(i).getString("name"));
+                                    String temp = menuArray.getJSONObject(i).getString("name") + " - " + menuArray.getJSONObject(i).getString("price");
+                                    addItem(temp);
+                                    //listmenu.add(menuArray.getJSONObject(i).getString("name"));
                                 }
                             }
                             //Toast.makeText(CategoryActivity.this, listmenu.toString(), Toast.LENGTH_LONG).show();
-                            Adapter(listmenu);
+                            //Adapter(listmenu);
+                            Adapter();
 
 
                         } catch (JSONException e) {
@@ -102,7 +105,7 @@ public class CategoryActivity extends AppCompatActivity {
 
     }
 
-    public void Adapter(List Menu) {
+    /*public void Adapter(List Menu) {
         final TextView mTextView = findViewById(R.id.textView);
         //Log.d("test", "test1");
         ListAdapter theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Menu);
@@ -122,16 +125,41 @@ public class CategoryActivity extends AppCompatActivity {
 
             }
         });
+    }*/
+
+    public void Adapter() {
+        final TextView mTextView = findViewById(R.id.textView);
+        ListAdapter theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listmenu);
+        ListView MenuListView = (ListView) findViewById(R.id.theMenuListView);
+        MenuListView.setAdapter(theAdapter);
+        MenuListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                addOrder(String.valueOf(adapterView.getItemAtPosition(i)));
+
+            }
+        });
     }
 
+
     public void addItem(String Item){
+
         listmenu.add(Item);
     }
 
     public void addOrder(String Item){
         SharedPreferences prefs = getSharedPreferences("order", MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = prefs.edit();
-        prefsEditor.putString(Item, Item);
+        if (!prefs.contains("count")){
+            prefsEditor.putInt("count", 0);
+        }
+
+        //SharedPreferences orderOutput = this.getSharedPreferences("order", MODE_PRIVATE);
+        int count = prefs.getInt("count", 0) + 1;
+        String stringcount = Integer.toString(count);
+
+        prefsEditor.putString(stringcount, Item);
+        prefsEditor.putInt("count", count);
         prefsEditor.commit();
 
 
